@@ -3,9 +3,9 @@ export default function Home() {
     <div className="h-screen flex flex-col">
       {/* Header */}
       <header className="p-8 pb-4 bg-offwhite w-full">
-        <h1 className="text-4xl font-bold">Your Name</h1>
+        <h1 className="text-4xl font-bold">Peter D'Angelo</h1>
         <p className="text-lg mt-2">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          inventor, software engineer, and mucician
         </p>
         {/* Links */}
         <nav className="mt-4">
