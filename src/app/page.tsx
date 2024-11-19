@@ -5,7 +5,7 @@ export default function Home() {
       <header className="p-8 pb-4 bg-offwhite w-full">
         <h1 className="text-4xl font-bold">Peter D'Angelo</h1>
         <p className="text-lg mt-2">
-          inventor, software engineer, and mucician
+          inventor, software engineer, and musician
         </p>
         {/* Links */}
         <nav className="mt-4">
