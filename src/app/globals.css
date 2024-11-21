@@ -3,19 +3,63 @@
 @tailwind utilities;
 
 :root {
-  --background: #828179;
-  --foreground: #e6e3cf;
+  --background: #d3c9bb;
+  --foreground: #535248;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #c2bfab;
+    --background: #d3c9bb;
     --foreground: #535248;
   }
 }
 
+@font-face {
+  font-family: 'Geist Mono';
+  src: url('fonts/GeistMonoVF.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Geist Mono, Arial, Helvetica, sans-serif;
+}
+
+.gradient-bg {
+  background: linear-gradient(90deg, #775258, #7cb477, #6cb4b7, #363445);
+  background-size: 400% 400%;
+}
+
+@layer base {
+  /* Default ul styles for bullet-point lists */
+  ul {
+    @apply list-disc list-inside text-left;
+  }
+
+  /* Custom styles for lists with custom icons */
+  .icon-list > li {
+    @apply flex;
+  }
+
+  .icon-list > li::before {
+    content: '>'; /* Custom icon */
+    color: var(--primary);
+    margin-right: 0.5rem;
+    font-size: 0.7rem;
+  }
+
+  /* Override styles for navigation lists */
+  nav ul {
+    @apply list-none; /* Ensure no bullets or icons in navs */
+  }
+
+  /* Explicit override for list-none globally if needed */
+  .list-none {
+    list-style-type: none;
+    padding-left: 0;
+  }
 }

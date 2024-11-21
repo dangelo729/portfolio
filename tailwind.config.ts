@@ -11,7 +11,25 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        primary: "#304c7a", //button color
+        primary: "#304c7a", // Button color
+      },
+      animation: {
+        shimmer: 'shimmer 1s infinite',
+        gradient: 'gradient 5s infinite',
+      },
+      keyframes: {
+        shimmer: {
+          '0%': { backgroundColor: '#775258' },
+          '25%': { backgroundColor: '#7cb477' },
+          '50%': { backgroundColor: '#6cb4b7' },
+          '75%': { backgroundColor: '#363445' },
+          '100%': { backgroundColor: '#775258' },
+        },
+        gradient: {
+          '0%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+          '100%': { backgroundPosition: '0% 50%' },
+        },
       },
     },
   },
