@@ -1,5 +1,8 @@
-import Image from 'next/image';
+
 import SolarSystem from './components/SolarSystem';
+import ColumnHeader from './components/ColumnHeader';
+import PortfolioItem from './components/PortfolioItem';
+
 export default function Home() {
   return (
     <div className="h-screen flex flex-col">
@@ -126,18 +129,32 @@ export default function Home() {
         </div>
 
 
+
+
         {/* Cicada Column */}
         <div className="w-1/3 overflow-y-auto">
           <ColumnHeader title="Cicada" shimmer />
           <div className="p-4 space-y-4">
-            {/* Placeholder items */}
-            {[...Array(5)].map((_, index) => (
-              <div key={index} className="h-32 flex items-center justify-center">
-                Cicada {index + 1}
-              </div>
-            ))}
+            {/* Live Scrubber */}
+            <PortfolioItem
+              imageSrc="/scrub/scrub.gif"
+              altText="Live Scrubber"
+              caption={
+                <div>
+                  <div className="italic">CICADA</div>
+                </div>
+              }
+              imageWidth={100}
+              imageHeight={300}
+              captionClassName="bottom-0 mb-0"
+              separatorWidth="w-3/4"
+              left="55%"
+            />
           </div>
         </div>
+
+
+
 
         {/* Software Column */}
         <div className="w-1/3 overflow-y-auto">
@@ -145,15 +162,16 @@ export default function Home() {
           <div className="p-4 space-y-4">
             {/* Live Scrubber */}
             <PortfolioItem
-              imageSrc="/scrub/scrub.gif" // Update this path to your actual image
+              imageSrc="/scrub/scrub.gif"
               altText="Live Scrubber"
               caption={
                 <div>
                   <div className="italic">Custom Teensy Audio Library Object: Live Scrubber</div>
                   <ul className="icon-list list-disc list-inside text-sm mt-1 text-left space-y-2">
-                    <li>Popular and modular embedded scrubbing software for the Teensy Audio Library</li>
+                    <li>Modular embedded scrubbing software for the Teensy Audio Library</li>
                     <li>Adjustable scrubbing rate, change audio files on the fly</li>
                     <li>Complex DSP, yet easy to use and implement in projects</li>
+                    <li>Gained popularity within the teensy open source community</li>
                   </ul>
                 </div>
               }
@@ -163,61 +181,62 @@ export default function Home() {
               separatorWidth="w-3/4"
               left="55%"
             />
-            {/* Embedded TF */}
+            {/* Sound identifier*/}
             <PortfolioItem
-              imageSrc="/scrub/scrub.gif" // Update this path to your actual image
+              imageSrc="/scrub/scrub.gif"
               altText="Live Scrubber"
               caption={
                 <div>
-                  <div className="italic">Custom Teensy Audio Library Object: Live Scrubber</div>
+                  <div className="italic">SOUND IDENTIFYING WEB APP </div>
                   <ul className="icon-list list-disc list-inside text-sm mt-1 text-left space-y-2">
-                    <li>Clean sounding, adjustable live scrubber</li>
-                    <li>Adjustable scrubbing rate, change audio files on the fly</li>
-                    <li>Complex DSP, yet easy to use and implement in projects</li>
+                    <li>Uses Docker to integrete machine learning, Flask-based web app, and MongoDB containers</li>
+                    <li>Allows for quick identification of sounds through microphone imput using Librosa</li>
+                    <li>Built under a strict deadline using Agile methodology</li>
                   </ul>
                 </div>
               }
-              imageWidth={200}
+              imageWidth={100}
               imageHeight={300}
               captionClassName="bottom-0 mb-0"
               separatorWidth="w-3/4"
               left="55%"
             />
-            {/* Live Scrubber */}
+            {/* Embedded TF Model */}
             <PortfolioItem
-              imageSrc="/scrub/scrub.gif" // Update this path to your actual image
+              imageSrc="/ETF/home.gif"
               altText="Live Scrubber"
               caption={
                 <div>
-                  <div className="italic">Custom Teensy Audio Library Object: Live Scrubber</div>
+                  <div className="italic">EMBEDDED TENSORFLOW MODEL</div>
                   <ul className="icon-list list-disc list-inside text-sm mt-1 text-left space-y-2">
-                    <li>Clean sounding, adjustable live scrubber</li>
-                    <li>Adjustable scrubbing rate, change audio files on the fly</li>
-                    <li>Complex DSP, yet easy to use and implement in projects</li>
+                    <li>Custom designed and trained sequential model</li>
+                    <li>Intelligently outputs midi notes to harmonize with a user's melody in real time</li>
+                    <li>Low latency and power consumption, running on a Teensy 4.1 microcontroller</li>
                   </ul>
                 </div>
               }
-              imageWidth={200}
+              imageWidth={100}
               imageHeight={300}
               captionClassName="bottom-0 mb-0"
               separatorWidth="w-3/4"
               left="55%"
             />
-            {/* Live Scrubber */}
+            {/* Library DB */}
             <PortfolioItem
-              imageSrc="/scrub/scrub.gif" // Update this path to your actual image
+              imageSrc="/scrub/scrub.gif"
               altText="Live Scrubber"
               caption={
                 <div>
-                  <div className="italic">Custom Teensy Audio Library Object: Live Scrubber</div>
+                  <div className="italic">LIBRARY DATABASE WEB APP</div>
                   <ul className="icon-list list-disc list-inside text-sm mt-1 text-left space-y-2">
-                    <li>Clean sounding, adjustable live scrubber</li>
-                    <li>Adjustable scrubbing rate, change audio files on the fly</li>
-                    <li>Complex DSP, yet easy to use and implement in projects</li>
+                    <li>Created in an agile methodology with a tight team of 3 others</li>
+                    <li>Integrates Flash, MongoDB, HTML, and CSS</li>
+                    <li>Logs lent books, due dates, and available stock</li>
+                    <li>Main app logic coded in Python</li>
                   </ul>
                 </div>
               }
-              imageWidth={200}
+              imageWidth={100}
               imageHeight={300}
               captionClassName="bottom-0 mb-0"
               separatorWidth="w-3/4"
@@ -230,52 +249,6 @@ export default function Home() {
   );
 }
 
-/* PortfolioItem Component */
-function PortfolioItem({
-  imageSrc,
-  altText,
-  caption,
-  imageWidth = 300,
-  imageHeight = 300,
-  captionClassName = '',
-  separatorWidth = 'w-1/2',
-  left = '25%',
-}: {
-  imageSrc: string;
-  altText: string;
-  caption: React.ReactNode;
-  imageWidth?: number;
-  imageHeight?: number;
-  captionClassName?: string;
-  separatorWidth?: string;
-  left?: string;
-}) {
-  return (
-    <div className="relative flex flex-col items-center justify-center">
-      {/* Image */}
-      <Image
-        src={imageSrc}
-        alt={altText}
-        width={imageWidth}
-        height={imageHeight}
-        objectFit="contain"
-      />
-
-      {/* Caption */}
-      <div
-        className={`relative lefgt text-center ${captionClassName}`}
-        style={{}}
-      >
-        {caption}
-      </div>
-
-      {/* Horizontal Separator */}
-      <div className={`mt-0 ${separatorWidth} h-[1px]`} />
-    </div>
-  );
-}
-
-
 /* Button Component */
 function Button({ href, label }: { href: string; label: string }) {
   return (
@@ -287,36 +260,3 @@ function Button({ href, label }: { href: string; label: string }) {
     </a>
   );
 }
-
-/* ColumnHeader Component */
-function ColumnHeader({
-  title,
-  bgColor,
-  shimmer = false,
-  isFilled = true,
-  borderRadius = 20,
-  thickness = 2,
-}: {
-  title: string;
-  bgColor?: string;
-  shimmer?: boolean;
-  isFilled?: boolean;
-  borderRadius?: number;
-  thickness?: number;
-}) {
-  return (
-    <div className="sticky top-0 z-10 flex justify-center bg-[var(--background)]">
-      <div
-        className={`rounded px-5 py-2 mt-4 ${shimmer ? 'gradient-bg animate-gradient' : ''}`}
-        style={{
-          backgroundColor: !shimmer && isFilled ? bgColor : 'transparent',
-          border: !isFilled ? `${thickness}px solid ${bgColor || 'white'}` : undefined,
-          borderRadius: `${borderRadius}px`,
-        }}
-      >
-        <h2 className="text-2xl italic text-white">{title}</h2>
-      </div>
-    </div>
-  );
-}
-
