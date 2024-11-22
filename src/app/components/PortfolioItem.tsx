@@ -1,5 +1,5 @@
-
 import Image from 'next/image';
+
 /* PortfolioItem Component */
 export default function PortfolioItem({
   imageSrc,
@@ -11,8 +11,8 @@ export default function PortfolioItem({
   separatorWidth = 'w-1/2',
   left = '25%',
 }: {
-  imageSrc: string;
-  altText: string;
+  imageSrc?: string;
+  altText?: string;
   caption: React.ReactNode;
   imageWidth?: number;
   imageHeight?: number;
@@ -23,18 +23,19 @@ export default function PortfolioItem({
   return (
     <div className="relative flex flex-col items-center justify-center">
       {/* Image */}
-      <Image
-        src={imageSrc}
-        alt={altText}
-        width={imageWidth}
-        height={imageHeight}
-        objectFit="contain"
-      />
+      {imageSrc && altText && (
+        <Image
+          src={imageSrc}
+          alt={altText}
+          width={imageWidth}
+          height={imageHeight}
+          objectFit="contain"
+        />
+      )}
 
       {/* Caption */}
       <div
-        className={`relative lefgt text-center ${captionClassName}`}
-        style={{}}
+        className={`relative text-center ${captionClassName}`}
       >
         {caption}
       </div>

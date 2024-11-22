@@ -46,7 +46,7 @@ export default function Home() {
               altText="Reverse The Curse"
               caption={
                 <div>
-                  <div className="italic">Reverse The Curse</div>
+                  <div className="italic font-bold">Reverse The Curse</div>
                   <ul className="icon-list list-disc list-inside text-sm mt-1 text-left space-y-4">
                     <li>Principal software designer for BrandNewNoise's new flagship product</li>
                     <li>1k+ units sold, $100k+ in revenue</li>
@@ -68,7 +68,7 @@ export default function Home() {
               altText="Sol"
               caption={
                 <div>
-                  <div className="italic">Sol+Serenade</div>
+                  <div className="italic font-bold">Sol+Serenade</div>
                   <ul className="icon-list list-disc list-inside text-sm mt-1 text-left space-y-4">
                     <li>2-engine digital synthesizer(planetary/vocal synthesis)</li>
                     <li> 4-voice polyphony</li>
@@ -89,7 +89,7 @@ export default function Home() {
               altText="DVD"
               caption={
                 <div>
-                  <div className="italic">DVD Synth</div>
+                  <div className="italic font-bold">DVD Synth</div>
                   <ul className="icon-list list-disc list-inside text-sm mt-1 text-left space-y-4">
                     <li> Digital sequencer + synthesizer</li>
                     <li>Custom DVD screensaver animations</li>
@@ -110,7 +110,7 @@ export default function Home() {
               altText="Analog"
               caption={
                 <div>
-                  <div className="italic">Analog Synthesizer</div>
+                  <div className="italic font-bold">Analog Synthesizer</div>
                   <ul className="icon-list list-disc list-inside text-sm mt-1 text-left space-y-4">
                     <li>Fully analog</li>
                     <li>8-key individually tunable keyboard</li>
@@ -137,11 +137,19 @@ export default function Home() {
           <div className="p-4 space-y-4">
             {/* Live Scrubber */}
             <PortfolioItem
-              imageSrc="/scrub/scrub.gif"
-              altText="Live Scrubber"
+              imageSrc="/cicada/cicada_round.gif"
+              altText="cicada"
               caption={
-                <div>
-                  <div className="italic">CICADA</div>
+                <div className='space-y-4'>
+                  <ul className="text-center font-bold">
+                    Cicada is a portable, powerful, and intuitive art-synth
+                  </ul>
+                  <ul className="text-center italic text-sm">
+                    Designed, engineered, and built by Peter D'Angelo.
+                  </ul>
+                  <ul className="text-center">
+                  <Button href="https://www.linkedin.com/in/peter-dangelo/" label="learn more" />
+                  </ul>
                 </div>
               }
               imageWidth={100}
@@ -162,11 +170,9 @@ export default function Home() {
           <div className="p-4 space-y-4">
             {/* Live Scrubber */}
             <PortfolioItem
-              imageSrc="/scrub/scrub.gif"
-              altText="Live Scrubber"
               caption={
                 <div>
-                  <div className="italic">Custom Teensy Audio Library Object: Live Scrubber</div>
+                  <div className="italic font-bold">Custom Teensy Audio Library Object: LIVE SCRUBBER</div>
                   <ul className="icon-list list-disc list-inside text-sm mt-1 text-left space-y-2">
                     <li>Modular embedded scrubbing software for the Teensy Audio Library</li>
                     <li>Adjustable scrubbing rate, change audio files on the fly</li>
@@ -183,11 +189,9 @@ export default function Home() {
             />
             {/* Sound identifier*/}
             <PortfolioItem
-              imageSrc="/scrub/scrub.gif"
-              altText="Live Scrubber"
               caption={
                 <div>
-                  <div className="italic">SOUND IDENTIFYING WEB APP </div>
+                  <div className="italic font-bold">SOUND IDENTIFYING WEB APP </div>
                   <ul className="icon-list list-disc list-inside text-sm mt-1 text-left space-y-2">
                     <li>Uses Docker to integrete machine learning, Flask-based web app, and MongoDB containers</li>
                     <li>Allows for quick identification of sounds through microphone imput using Librosa</li>
@@ -203,11 +207,9 @@ export default function Home() {
             />
             {/* Embedded TF Model */}
             <PortfolioItem
-              imageSrc="/ETF/home.gif"
-              altText="Live Scrubber"
               caption={
                 <div>
-                  <div className="italic">EMBEDDED TENSORFLOW MODEL</div>
+                  <div className="italic font-bold">EMBEDDED TENSORFLOW MODEL</div>
                   <ul className="icon-list list-disc list-inside text-sm mt-1 text-left space-y-2">
                     <li>Custom designed and trained sequential model</li>
                     <li>Intelligently outputs midi notes to harmonize with a user's melody in real time</li>
@@ -223,11 +225,9 @@ export default function Home() {
             />
             {/* Library DB */}
             <PortfolioItem
-              imageSrc="/scrub/scrub.gif"
-              altText="Live Scrubber"
               caption={
                 <div>
-                  <div className="italic">LIBRARY DATABASE WEB APP</div>
+                  <div className="italic font-bold">LIBRARY DATABASE WEB APP</div>
                   <ul className="icon-list list-disc list-inside text-sm mt-1 text-left space-y-2">
                     <li>Created in an agile methodology with a tight team of 3 others</li>
                     <li>Integrates Flash, MongoDB, HTML, and CSS</li>
