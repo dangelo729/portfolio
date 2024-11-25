@@ -1,4 +1,4 @@
-
+/* Button Component */
 export default function Button({ href, label }: { href: string; label: string }) {
     return (
       <a

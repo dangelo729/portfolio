@@ -29,7 +29,8 @@ export default function Home() {
   return (
     <div className="h-screen flex flex-col relative">
       {/* Header */}
-      <header className="p-8 pb-4 bg-offwhite w-full flex items-start">
+      <header className="p-8 pb-4 bg-offwhite w-full flex items-start border-b border-b-1 border-dashed border-b-[rgba(83,82,72,1.0)]">
+
         {/* Left Section: Header Information */}
         <div className="flex-wrap">
           <h1 className="text-4xl font-bold">Peter D'Angelo</h1>
@@ -56,6 +57,8 @@ export default function Home() {
         </div>
       </header>
 
+
+
       {/* Main Content */}
       <main className="flex flex-1 overflow-hidden relative">
         {/* "Click to expand ->" Text */}
@@ -78,8 +81,8 @@ export default function Home() {
 
         {/* Prototypes Column */}
         <div
-          className="w-1/3 overflow-y-auto space-y-4 border-r border-dashed border-r-[rgba(83,82,72,0.5)]"
-          style={{ borderColor: 'rgba(83,82,72,0.5)' }}
+          className="w-1/3 overflow-y-auto space-y-4 border-r border-dashed border-r-[rgba(83,82,72,1.0)]"
+          style={{ borderColor: 'rgba(83,82,72,1.0)' }}
         >
           <ColumnHeader
             title="Prototypes"
@@ -193,8 +196,8 @@ export default function Home() {
 
         {/* Cicada Column */}
         <div
-          className="w-1/3 overflow-y-auto space-y-4 border-r border-dashed border-r-[rgba(83,82,72,0.5)]"
-          style={{ borderColor: 'rgba(83,82,72,0.5)' }}
+          className="w-1/3 overflow-y-auto space-y-4 border-r border-dashed border-r-[rgba(83,82,72,1.0)]"
+          style={{ borderColor: 'rgba(83,82,72,1.0)' }}
         >
           <ColumnHeader
             title="Cicada"
@@ -277,8 +280,8 @@ export default function Home() {
                   left="55%"
                   href="/scrubber"
                 />
-                                {/* This site */}
-                                <PortfolioItem
+                {/* This site */}
+                <PortfolioItem
                   caption={
                     <div>
                       <div className="italic font-bold">THIS WEBSITE!</div>
@@ -360,7 +363,7 @@ export default function Home() {
                   captionClassName="bottom-0 mb-0"
                   separatorWidth="w-3/4"
                   left="55%"
-                  href="/reverse-the-curse"
+                  href="/lib"
                 />s
               </motion.div>
             )}

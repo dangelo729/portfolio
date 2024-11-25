@@ -82,7 +82,9 @@ This fully analog synth, running on two 9v batteries, has a wide array of featur
     date: 'Spring 2024',
     description: [`
 This is a custom audio object for the teensy audio library that implements a complicated yet fundamental utility for digital audio projects: live scrubbing. It allows the user to scrub through an audio file as if they were scratching through a vinyl record on a turntable. While the underlying logic is complex, the object is intuitive, fun, and easy to use.
-    `],
+    `,
+    `The technical challenges of this object included creating a circular buffer to continuously store and read data quickly from an SD card, efficient DMA memory management, and clean sample interpolation for a smooth audio output.`,
+  ],
     learnMoreLink: 'https://github.com/dangelo729/teensy_audio_library_scrubber',
   },
   'sound': {
@@ -123,6 +125,19 @@ This is a custom audio object for the teensy audio library that implements a com
 
     ],
     learnMoreLink: 'https://github.com/dangelo729/portfolio',
+  },
+  'lib': {
+    id: 'lib',
+    title: 'Library Database Web App',
+    images: [
+    ],
+    date: 'Fall 2024',
+    description: [
+`Created with a team of 4 classmates, this library database web app is was created as an excercise to create a multi-faceted yet tightly-interated app using Flask, MongoDB, and Python.`,
+`Additionally, all work had to be coordinated and structured using Git for version control and the agile developement method throughout.`,
+
+    ],
+    learnMoreLink: 'https://github.com/software-students-fall2024/2-web-app-superteam',
   },
 };
 
