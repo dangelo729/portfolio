@@ -4,32 +4,36 @@ import { motion, AnimatePresence } from 'framer-motion';
 import SolarSystem from './components/SolarSystem';
 import ColumnHeader from './components/ColumnHeader';
 import PortfolioItem from './components/PortfolioItem';
-
-/* Button Component */
-function Button({ href, label }: { href: string; label: string }) {
-  return (
-    <a
-      href={href}
-      className="inline-block italic text-primary border border-primary rounded-full px-3 py-1 text-sm transition-colors duration-200 hover:bg-primary hover:text-white"
-    >
-      {label}
-    </a>
-  );
-}
+import Button from './components/Button';
 
 export default function Home() {
   const [isPrototypesExpanded, setIsPrototypesExpanded] = useState(false);
   const [isCicadaExpanded, setIsCicadaExpanded] = useState(false);
   const [isSoftwareExpanded, setIsSoftwareExpanded] = useState(false);
+  const [isFirstInteraction, setIsFirstInteraction] = useState(false);
+  const [hasColumnBeenClicked, setHasColumnBeenClicked] = useState(false);
+
+  const handleColumnClick = (setExpanded: React.Dispatch<React.SetStateAction<boolean>>, isExpanded: boolean) => {
+    setExpanded(!isExpanded);
+    setHasColumnBeenClicked(true);
+
+    if (!isFirstInteraction) {
+      setIsFirstInteraction(true);
+    }
+
+    if (!isFirstInteraction) {
+      setIsFirstInteraction(true);
+    }
+  };
 
   return (
-    <div className="h-screen flex flex-col">
+    <div className="h-screen flex flex-col relative">
       {/* Header */}
       <header className="p-8 pb-4 bg-offwhite w-full flex items-start">
         {/* Left Section: Header Information */}
         <div className="flex-wrap">
           <h1 className="text-4xl font-bold">Peter D'Angelo</h1>
-          <p className="text-lg mt-2">inventor, software engineer, and musician</p>
+          <p className="text-lg mt-2">Inventor, software engineer, and musician.</p>
           {/* Links */}
           <nav className="mt-4">
             <ul className="flex space-x-4">
@@ -48,18 +52,39 @@ export default function Home() {
 
         {/* Right Section: Solar System */}
         <div className="justify-center item-center mt-[-40px]">
-          <SolarSystem />
+          <SolarSystem shouldReact={isFirstInteraction} />
         </div>
       </header>
 
       {/* Main Content */}
-      <main className="flex flex-1 overflow-hidden">
+      <main className="flex flex-1 overflow-hidden relative">
+        {/* "Click to expand ->" Text */}
+        <AnimatePresence>
+          {!hasColumnBeenClicked && (
+            <motion.div
+              className="z-20 absolute left-[44px] top-[94px] transform -translate-y-1/2 flex flex-col items-center"
+              initial={{ opacity: 1 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <span className="text-[#535248] text-sm">Click</span>
+              <span className="text-[#535248] text-sm">to</span>
+              <span className="text-[#535248] text-sm">expand</span>
+              <span className="text-[#535248] text-sm">-&gt;</span>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
         {/* Prototypes Column */}
-        <div className="w-1/3 overflow-y-auto  space-y-4">
+        <div
+          className="w-1/3 overflow-y-auto space-y-4 border-r border-dashed border-r-[rgba(83,82,72,0.5)]"
+          style={{ borderColor: 'rgba(83,82,72,0.5)' }}
+        >
           <ColumnHeader
             title="Prototypes"
             bgColor="#d7a64b"
-            onClick={() => setIsPrototypesExpanded(!isPrototypesExpanded)}
+            onClick={() => handleColumnClick(setIsPrototypesExpanded, isPrototypesExpanded)}
             isExpanded={isPrototypesExpanded}
           />
           <AnimatePresence>
@@ -92,6 +117,7 @@ export default function Home() {
                   captionClassName="bottom-0 mb-0"
                   separatorWidth="w-3/4"
                   left="55%"
+                  href="/reverse-the-curse"
                 />
 
                 {/* Sol */}
@@ -113,6 +139,7 @@ export default function Home() {
                   captionClassName="bottom-8 mb-6"
                   separatorWidth="w-2/3"
                   left="50%"
+                  href="/sol"
                 />
 
                 {/* DVD */}
@@ -134,6 +161,7 @@ export default function Home() {
                   captionClassName="bottom-12 mb-20"
                   separatorWidth="w-1/2"
                   left="40%"
+                  href="/dvd"
                 />
 
                 {/* Analog */}
@@ -156,6 +184,7 @@ export default function Home() {
                   captionClassName="bottom-8 mb-6"
                   separatorWidth="w-full"
                   left="50%"
+                  href="/analog"
                 />
               </motion.div>
             )}
@@ -163,11 +192,14 @@ export default function Home() {
         </div>
 
         {/* Cicada Column */}
-        <div className="w-1/3 overflow-y-auto space-y-4">
+        <div
+          className="w-1/3 overflow-y-auto space-y-4 border-r border-dashed border-r-[rgba(83,82,72,0.5)]"
+          style={{ borderColor: 'rgba(83,82,72,0.5)' }}
+        >
           <ColumnHeader
             title="Cicada"
             shimmer
-            onClick={() => setIsCicadaExpanded(!isCicadaExpanded)}
+            onClick={() => handleColumnClick(setIsCicadaExpanded, isCicadaExpanded)}
             isExpanded={isCicadaExpanded}
           />
           <AnimatePresence>
@@ -191,9 +223,6 @@ export default function Home() {
                       <ul className="text-center italic text-sm">
                         Designed, engineered, and built by Peter D'Angelo.
                       </ul>
-                      <ul className="text-center">
-                        <Button href="https://www.linkedin.com/in/peter-dangelo/" label="Learn More" />
-                      </ul>
                     </div>
                   }
                   imageWidth={100}
@@ -201,6 +230,7 @@ export default function Home() {
                   captionClassName="bottom-0 mb-0"
                   separatorWidth="w-3/4"
                   left="55%"
+                  href="/reverse-the-curse"
                 />
               </motion.div>
             )}
@@ -208,17 +238,17 @@ export default function Home() {
         </div>
 
         {/* Software Column */}
-        <div className="w-1/3 overflow-y-auto  space-y-4">
+        <div className="w-1/3 overflow-y-auto space-y-4">
           <ColumnHeader
             title="Software"
             bgColor="#e06236"
-            onClick={() => setIsSoftwareExpanded(!isSoftwareExpanded)}
+            onClick={() => handleColumnClick(setIsSoftwareExpanded, isSoftwareExpanded)}
             isExpanded={isSoftwareExpanded}
           />
           <AnimatePresence>
             {isSoftwareExpanded && (
               <motion.div
-                className="overflow-hidden"
+                className="overflow-hidden space-y-8"
                 initial={{ height: 0 }}
                 animate={{ height: 'auto' }}
                 exit={{ height: 0 }}
@@ -245,6 +275,28 @@ export default function Home() {
                   captionClassName="bottom-0 mb-0"
                   separatorWidth="w-3/4"
                   left="55%"
+                  href="/scrubber"
+                />
+                                {/* This site */}
+                                <PortfolioItem
+                  caption={
+                    <div>
+                      <div className="italic font-bold">THIS WEBSITE!</div>
+                      <ul className="icon-list list-disc list-inside text-sm mt-1 text-left space-y-2">
+                        <li>Coded from scratch using Next.js, React, and Tailwind CSS</li>
+                        <li>Dynamic portfolio layout with smooth hover animations</li>
+                        <li>Responsive design optimized for desktop and mobile devices</li>
+                        <li>Modular components for scalability and maintainability</li>
+                        <li>Deployed seamlessly using Vercel for fast and reliable performance</li>
+                      </ul>
+                    </div>
+                  }
+                  imageWidth={100}
+                  imageHeight={300}
+                  captionClassName="bottom-0 mb-0"
+                  separatorWidth="w-3/4"
+                  left="55%"
+                  href="/website"
                 />
                 {/* Sound Identifier */}
                 <PortfolioItem
@@ -267,6 +319,7 @@ export default function Home() {
                   captionClassName="bottom-0 mb-0"
                   separatorWidth="w-3/4"
                   left="55%"
+                  href="/sound"
                 />
                 {/* Embedded TF Model */}
                 <PortfolioItem
@@ -287,6 +340,7 @@ export default function Home() {
                   captionClassName="bottom-0 mb-0"
                   separatorWidth="w-3/4"
                   left="55%"
+                  href="/tf"
                 />
                 {/* Library Database */}
                 <PortfolioItem
@@ -306,7 +360,8 @@ export default function Home() {
                   captionClassName="bottom-0 mb-0"
                   separatorWidth="w-3/4"
                   left="55%"
-                />
+                  href="/reverse-the-curse"
+                />s
               </motion.div>
             )}
           </AnimatePresence>

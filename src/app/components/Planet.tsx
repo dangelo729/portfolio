@@ -1,3 +1,4 @@
+/* Planet Component */
 import { useState, useEffect, useRef } from "react";
 
 interface PlanetProps {

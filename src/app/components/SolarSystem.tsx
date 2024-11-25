@@ -1,13 +1,15 @@
 "use client";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Planet from './Planet';
 
-export default function SolarSystem() {
+export default function SolarSystem({ shouldReact }: { shouldReact: boolean }) {
     const [isAnimating, setIsAnimating] = useState(false);
 
-    const handleSunClick = () => {
-        setIsAnimating((prev) => !prev);
-    };
+    useEffect(() => {
+        if (shouldReact && !isAnimating) {
+            setIsAnimating(true);
+        }
+    }, [shouldReact]);
 
     return (
         <div className="relative w-[200px] h-[200px] flex items-center justify-center">
@@ -33,7 +35,7 @@ export default function SolarSystem() {
                     backgroundColor: '#535248',
                     borderRadius: '50%',
                 }}
-                onClick={handleSunClick}
+                onClick={() => setIsAnimating((prev) => !prev)}
             ></div>
 
             {/* Planets */}
@@ -41,8 +43,8 @@ export default function SolarSystem() {
                 <Planet
                     key={index}
                     planet={planet}
-                    isAnimating={!isAnimating}
-                    alignPlanets={isAnimating}
+                    isAnimating={isAnimating}
+                    alignPlanets={!isAnimating}
                     shimmer={planet.shimmer || false}
                 />
             ))}

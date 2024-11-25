@@ -1,4 +1,6 @@
+
 import Image from 'next/image';
+import Link from 'next/link';
 
 /* PortfolioItem Component */
 export default function PortfolioItem({
@@ -10,6 +12,7 @@ export default function PortfolioItem({
   captionClassName = '',
   separatorWidth = 'w-1/2',
   left = '25%',
+  href,
 }: {
   imageSrc?: string;
   altText?: string;
@@ -19,9 +22,10 @@ export default function PortfolioItem({
   captionClassName?: string;
   separatorWidth?: string;
   left?: string;
+  href: string;
 }) {
   return (
-    <div className="relative flex flex-col items-center justify-center">
+    <Link href={href} className="relative flex flex-col items-center justify-center">
       {/* Image */}
       {imageSrc && altText && (
         <Image
@@ -34,14 +38,12 @@ export default function PortfolioItem({
       )}
 
       {/* Caption */}
-      <div
-        className={`relative text-center ${captionClassName}`}
-      >
+      <div className={`relative text-center ${captionClassName}`}>
         {caption}
       </div>
 
       {/* Horizontal Separator */}
       <div className={`mt-0 ${separatorWidth} h-[1px]`} />
-    </div>
+    </Link>
   );
 }

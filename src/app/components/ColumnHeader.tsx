@@ -36,7 +36,7 @@ export default function ColumnHeader({
           overflow: 'hidden',
         }}
         animate={{
-          borderRadius: isExpanded ? '20px' : '50%',
+          borderRadius: isExpanded ? '5%' : '50%',
           height: isExpanded ? '60px' : '150px',
         }}
         initial={{
