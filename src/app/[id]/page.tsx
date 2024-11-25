@@ -122,7 +122,7 @@ This is a custom audio object for the teensy audio library that implements a com
 `The design is inspired by clarity and functionality, incorporating animation with Framer Motion to bring a sense of depth and engagement to the user interface. This portfolio was built to explore the integration of lovely design with modern web development practices, blending performance optimization with aesthetic appeal. It is currently live and actively maintained as a central hub for my work.`,
 
     ],
-    learnMoreLink: 'https://github.com/dangelo729/Tensorflow_Lite_Harmonizer',
+    learnMoreLink: 'https://github.com/dangelo729/portfolio',
   },
 };
 
